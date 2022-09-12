@@ -13,9 +13,6 @@ namespace Attanance.Models
         [ForeignKey("UserBasicDetails")]
         public int UserBasicDetailsId{ get; set; }
         public bool Attanance { get; set; }
-
-
-
         public string LeaveReason { get; set; }
         public DateTime AttananceDate { get; set; }
         public UserBasicDetails basicDetails { get; set; }

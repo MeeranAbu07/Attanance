@@ -19,7 +19,11 @@ namespace Attanance.Repo
         }
 
         
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userBasicDetails"></param>
+        /// <returns></returns>
         public async Task<string> CreateUser(UserBasicDetailsViewModel userBasicDetails)
         {
            

@@ -22,8 +22,8 @@ namespace Attanance.Repo
 
         public async Task<string> CreateUser(UserBasicDetailsViewModel userBasicDetails)
         {
-            try
-            {
+           
+            
                 UserBasicDetails userBasicDetails1 = new UserBasicDetails()
                 {
                     Id = userBasicDetails.Id,
@@ -38,12 +38,7 @@ namespace Attanance.Repo
                await _db.SaveChangesAsync();
 
                 return "Created sucessfuylly";
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+          
            
         }
         public async Task<string> CreateAttanance(AttanancesViewModel attanances)

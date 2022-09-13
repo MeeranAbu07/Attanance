@@ -31,6 +31,8 @@ namespace Attanance
         {
             services.AddDbContext<AppDbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IUsers, Users>();
+            services.AddScoped<ITaskDetails, TaskDetailsRepo>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

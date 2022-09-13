@@ -15,6 +15,7 @@ namespace Attanance
         }
         public DbSet<UserBasicDetails> UserBasics { get; set; }
         public DbSet<Attanances> attanances { get; set; }
+        public DbSet<TaskDetails> TaskDetails { get; set; }
 
     }
 }

@@ -25,6 +25,7 @@ namespace Attanance.Controllers
             var result = await _users.CreateTaskDetails(taskDetailsViewModel);
             return Ok(result);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetListTaskDetails()
         {

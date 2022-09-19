@@ -33,7 +33,24 @@ namespace Attanance.Repo
            
             _db.TaskDetails.Add(taskDetailsViewModel1);
             _db.SaveChanges();
-            return "0";
+            return "sucessfully created";
+        }
+
+        public async Task<List<TaskDetailsViewModel>> GetTaskList()
+        {
+            List<TaskDetailsViewModel> taskDetailsViewModels =await _db.TaskDetails.OrderBy(x => x.Id).Select((mak) => new TaskDetailsViewModel
+            {
+                Id = mak.Id,
+                UserBasicDetailsId = mak.UserBasicDetailsId,
+                ModuleName =mak.ModuleName,
+                ProjectName =mak.ProjectName,
+                TaskCompleteDate =mak.TaskCompleteDate,
+                TaskDetail =mak.TaskDetail,
+                TaskStartDate =mak.TaskStartDate,
+                
+            }).ToListAsync();
+
+            return taskDetailsViewModels;
         }
     }
 }

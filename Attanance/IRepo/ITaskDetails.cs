@@ -9,6 +9,8 @@ namespace Attanance.IRepo
     public interface ITaskDetails
     {
         public Task<string> CreateTaskDetails(TaskDetailsViewModel taskDetailsViewModel);
+        public Task<List<TaskDetailsViewModel>> GetTaskList();
+
 
     }
 }

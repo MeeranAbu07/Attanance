@@ -25,5 +25,6 @@ namespace Attanance.Controllers
             var result = await _users.CreateTaskDetails(taskDetailsViewModel);
             return Ok(result);
         }
+      //  [HttpGet("GetTask")]
     }
 }

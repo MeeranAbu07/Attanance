@@ -30,9 +30,10 @@ namespace Attanance.Controllers
 
         // GET api/<UsersBasicDeailsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            var result = await _users.GetUserById(id);
+            return Ok(result);
         }
 
         // POST api/<UsersBasicDeailsController>
@@ -49,15 +50,19 @@ namespace Attanance.Controllers
             return Ok(result);
         }
         // PUT api/<UsersBasicDeailsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<IActionResult> Put( [FromBody] UserBasicDetailsViewModel userBasicDetailsViewModel)
         {
+            var result = await _users.UpdateUser(userBasicDetailsViewModel);
+            return Ok(result);
         }
 
         // DELETE api/<UsersBasicDeailsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var result = await _users.DeleteUserById(id);
+            return Ok(result);
         }
     }
 }

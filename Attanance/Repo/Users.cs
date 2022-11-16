@@ -45,6 +45,27 @@ namespace Attanance.Repo
           
            
         }
+        public async Task<string> UpdateUser(UserBasicDetailsViewModel userBasicDetails)
+        {
+
+
+            UserBasicDetails userBasicDetails1 = new UserBasicDetails()
+            {
+                Id = userBasicDetails.Id,
+                UserName = userBasicDetails.UserName,
+                EmployeeCode = userBasicDetails.EmployeeCode,
+                Dob = userBasicDetails.Dob,
+                Email = userBasicDetails.Email,
+                Doj = userBasicDetails.Doj
+
+            };
+             _db.UserBasics.Update(userBasicDetails1);
+            await _db.SaveChangesAsync();
+
+            return "Created sucessfuylly";
+
+
+        }
         public async Task<string> CreateAttanance(AttanancesViewModel attanances)
         {
             try
@@ -72,11 +93,39 @@ namespace Attanance.Repo
             }
 
         }
-        public Task<UserBasicDetailsViewModel> GetUserById(int id)
+        public async Task<UserBasicDetailsViewModel> GetUserById(int id)
         {
-            throw new NotImplementedException();
-        }
+            UserBasicDetailsViewModel userViewModels = await _db.UserBasics.Where(x => x.Id == id).Select((mak) => new UserBasicDetailsViewModel
+            {
 
+                Id = mak.Id,
+                UserName = mak.UserName,
+                Email = mak.Email,
+                EmployeeCode = mak.EmployeeCode,
+                Dob = mak.Dob,
+                Doj = mak.Doj
+            }).FirstOrDefaultAsync();
+
+            return userViewModels;
+        }
+        public async Task<string> DeleteUserById(int id)
+        {
+            UserBasicDetails userViewModels =  _db.UserBasics.Where(x => x.Id == id).Select(x => x).FirstOrDefault();
+                UserBasicDetails userBasicDetails1ss = new UserBasicDetails()
+                {
+                    Id = userViewModels.Id,
+                    UserName = userViewModels.UserName,
+                    EmployeeCode = userViewModels.EmployeeCode,
+                    Dob = userViewModels.Dob,
+                    Email = userViewModels.Email,
+                    Doj = userViewModels.Doj
+
+                };
+            _db.UserBasics.Remove(userBasicDetails1ss);
+            await _db.SaveChangesAsync();
+
+            return "Delete";
+        }
         public async Task<List<UserBasicDetailsViewModel>> GetUserList()
         {
             try

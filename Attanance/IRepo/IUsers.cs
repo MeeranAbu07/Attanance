@@ -13,5 +13,9 @@ namespace Attanance.IRepo
         public Task<List<UserBasicDetailsViewModel>> GetUserList();
         public Task<UserBasicDetailsViewModel> GetUserById(int id );
         public Task<string> CreateAttanance(AttanancesViewModel attanancesViewModel);
+        public Task<string> UpdateUser(UserBasicDetailsViewModel userBasicDetails);
+        public Task<string> DeleteUserById(int id);
+
+
     }
 }

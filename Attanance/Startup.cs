@@ -32,6 +32,7 @@ namespace Attanance
             services.AddDbContext<AppDbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IUsers, Users>();
             services.AddScoped<ITaskDetails, TaskDetailsRepo>();
+            services.AddTransient<iUserRoleRepository, UserRoleRepository>();
             services.AddTransient<IHieraricalRepository, HieraricalRepository>();
 
             services.AddControllers();

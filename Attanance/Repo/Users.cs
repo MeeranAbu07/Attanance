@@ -75,6 +75,7 @@ namespace Attanance.Repo
                     Id = attanances.Id,
                     UserBasicDetailsId = attanances.UserBasicDetailsId,
                     Attanance = attanances.Attanance,
+                    LeaveReason = attanances.LeaveReason,
                     AttananceDate = attanances.AttananceDate
                };
                 if (attanances.Attanance == false)
@@ -84,7 +85,7 @@ namespace Attanance.Repo
                 await _db.attanances.AddAsync(at);
                 await _db.SaveChangesAsync();
 
-                return "Created sucessfuylly";
+                return "Created sucessfully";
             }
             catch (Exception ex)
             {
@@ -140,6 +141,7 @@ namespace Attanance.Repo
                     Dob = mak.Dob,
                     Doj = mak.Doj
                 }).ToListAsync();
+
 
                 return userViewModels;
 

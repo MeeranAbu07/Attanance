@@ -19,6 +19,7 @@ namespace Attanance
         public DbSet<EmployeeDetails> EmployeeDetails { get; set; }
         public DbSet<HieraricalOrder> HieraricalOrder { get; set; }
 
+        public DbSet<UserRole> UserRole { get; set; }
 
     }
 }

@@ -20,6 +20,7 @@ namespace Attanance
         public DbSet<HieraricalOrder> HieraricalOrder { get; set; }
 
         public DbSet<UserRole> UserRole { get; set; }
-
+        public DbSet<StringToValue> stringToFloats{ get; set; }
+        public DbSet<AutoPasswordGenerates> AutoPasswordGenerates { get; set; }
     }
 }

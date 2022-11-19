@@ -64,5 +64,12 @@ namespace Attanance.Controllers
             var result = await _users.DeleteUserById(id);
             return Ok(result);
         }
+
+        [HttpPost("password")]
+        public async Task<IActionResult> Postpassword([FromBody] AutoPasswordGenerateViewModel userBasicDetailsViewModel)
+        {
+            var result = await _users.CreatePassword(userBasicDetailsViewModel);
+            return Ok(result);
+        }
     }
 }

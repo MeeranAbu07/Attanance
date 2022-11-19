@@ -153,5 +153,29 @@ namespace Attanance.Repo
             }
           
         }
+
+        public async Task<string> CreatePassword(AutoPasswordGenerateViewModel autoPasswordGenerate)
+        {
+            try
+            {
+                AutoPasswordGenerates autoPassword = new()
+                {
+                    Id = autoPasswordGenerate.Id,
+                    Name = autoPasswordGenerate.Name,
+                    Password = autoPasswordGenerate.Password
+                };
+                _db.autoPasswordGenerates.Add(autoPassword);
+                _db.SaveChanges();
+
+                return "sucessfull";
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Attanance.Models
 {
-    public class AutoPasswordGenerates
+    public class UserPassowrdGenerate
     {
         [Key]
         public int Id { get; set; }

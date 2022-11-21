@@ -21,6 +21,8 @@ namespace Attanance
 
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<StringToValue> stringToFloats{ get; set; }
-        public DbSet<AutoPasswordGenerates> AutoPasswordGenerates { get; set; }
+        public DbSet<TextFileUpload> TextFileUpload { get; set; }
+        public DbSet<UserPassowrdGenerate> UserPassowrd { get; set; }
+
     }
 }

@@ -66,7 +66,7 @@ namespace Attanance.Controllers
         }
 
         [HttpPost("password")]
-        public async Task<IActionResult> Postpassword([FromBody] AutoPasswordGenerateViewModel userBasicDetailsViewModel)
+        public async Task<IActionResult> Postpassword([FromBody] UserPassowrdGenerateViewModel userBasicDetailsViewModel)
         {
             var result = await _users.CreatePassword(userBasicDetailsViewModel);
             return Ok(result);

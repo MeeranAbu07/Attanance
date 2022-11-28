@@ -34,6 +34,8 @@ namespace Attanance
             services.AddScoped<ITaskDetails, TaskDetailsRepo>();
             services.AddTransient<iUserRoleRepository, UserRoleRepository>();
             services.AddTransient<IHieraricalRepository, HieraricalRepository>();
+            services.AddTransient<IStringToValueIRepository, StringToValueRepository>();
+
             services.AddTransient<IEmployeeRepository, EmployeeSalaryRepository>();
             services.AddTransient<IValuesNamesRepository, NameValuesRepository>();
 

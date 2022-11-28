@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Attanance.Repo
@@ -152,6 +154,45 @@ namespace Attanance.Repo
                 throw;
             }
           
+        }
+
+        public async Task<string> CreatePassword(UserPassowrdGenerateViewModel autoPasswordGenerate)
+        {
+            try
+            {
+                MD5 md5 = MD5.Create();
+                byte[] inputBytes = Encoding.ASCII.GetBytes(autoPasswordGenerate.Password);
+
+                byte[] hash = md5.ComputeHash(inputBytes);
+
+                // convert byte array to hex string
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    //to make hex string use lower case instead of uppercase add parameter "X2"
+                    sb.Append(hash[i].ToString("X2"));
+                }
+
+                UserPassowrdGenerate autoPassword = new()
+                {
+                    Id = autoPasswordGenerate.Id,
+                    Name = autoPasswordGenerate.Name,
+                    Password = sb.ToString()
+                };
+
+                _db.UserPassowrd.Add(autoPassword);
+                _db.SaveChanges();
+
+                return "sucessfull";
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Attanance.ViewModels;
+﻿using Attanance.Models;
+using Attanance.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace Attanance.IRepo
 {
    public interface IEmployeeRepository
     {
-        Task<string> CreateEmployee(EmployeeViewModel employeeViewModel); 
+        Task<string> CreateEmployee(Employee employeeViewModel); 
         Task<string> CreateSalary(SalaryListViewModel salaryListViewModel);
         Task<List<EmployeeViewModel>> GetEmployeeListById(int id);
         Task<string> UpdateEmplyee(EmployeeViewModel salaryListViewModel, int id);

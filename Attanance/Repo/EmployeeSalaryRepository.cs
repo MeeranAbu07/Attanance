@@ -1,4 +1,5 @@
-﻿using Attanance.IRepo;
+﻿using Attanance.Firebase;
+using Attanance.IRepo;
 using Attanance.Models;
 using Attanance.ViewModels;
 using FireSharp.Config;
@@ -16,22 +17,19 @@ namespace Attanance.Repo
 
     {
 
-        IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "OKDR7EIlB6Hi7sQUrVAbUdkmkppSxCO2OQ0ENoQD",
-            BasePath = "https://attananceapp-default-rtdb.firebaseio.com"
-        };
-        IFirebaseClient client;
+       
 
         private readonly AppDbContext mappDbContext;
-        public EmployeeSalaryRepository(AppDbContext appDbContext)
+        private readonly firebaseUnity mfirebaseUnity;
+
+        public EmployeeSalaryRepository(AppDbContext appDbContext, firebaseUnity firebaseUnity)
         {
             mappDbContext = appDbContext;
+            mfirebaseUnity = firebaseUnity;
         }
 
-        public async Task<string> CreateEmployee(EmployeeViewModel employeeViewModel)
+        public async Task<string> CreateEmployee(Employee employeeViewModel)
         {
-            List<int> employees = mappDbContext.Employee.Select(x => x.Id).OrderByDescending(x => x).ToList();
             
 
             Employee employee = new Employee();
@@ -45,12 +43,8 @@ namespace Attanance.Repo
             }
             await mappDbContext.Employee.AddAsync(employee);
             await mappDbContext.SaveChangesAsync();
-            Employee employee1 = mappDbContext.Employee.Where(x => x.FirstName == employeeViewModel.FirstName).Select(x => x).FirstOrDefault();
-
-            client = new FireSharp.FirebaseClient(config);
-            var data = employee1;
-            PushResponse response = client.Push("Employee/", data.Id);
-            SetResponse setResponse = client.Set("Employee/" + data.Id, data);
+            mfirebaseUnity.Create(employee);
+          
             return $"{employee.Id}";
         }
 
@@ -66,6 +60,7 @@ namespace Attanance.Repo
             }
             await mappDbContext.SalaryList.AddAsync(salaryList);
             await mappDbContext.SaveChangesAsync();
+            mfirebaseUnity.CreateSalary(salaryList);
             return $"{salaryList.Id}";
         }
 
@@ -89,8 +84,8 @@ namespace Attanance.Repo
             employeess.Token = ++ids;
             mappDbContext.Employee.Update(employeess);
             await mappDbContext.SaveChangesAsync();
-            client = new FireSharp.FirebaseClient(config);
-            SetResponse response = client.Set("Employee/" + employeess.Id, employeess);
+            //client = new FireSharp.FirebaseClient(config);
+            //SetResponse response = client.Set("Employee/" + employeess.Id, employeess);
 
             return "Update";
         }
@@ -106,8 +101,8 @@ namespace Attanance.Repo
             };
              mappDbContext.Employee.Update(employee);
             await mappDbContext.SaveChangesAsync();
-            client = new FireSharp.FirebaseClient(config);
-            SetResponse response = client.Set("Employee/" + employee.Id, employee);
+            //client = new FireSharp.FirebaseClient(config);
+            //SetResponse response = client.Set("Employee/" + employee.Id, employee);
 
 
             return "Updated";

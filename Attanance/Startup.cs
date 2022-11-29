@@ -1,3 +1,4 @@
+using Attanance.Firebase;
 using Attanance.IRepo;
 using Attanance.Repo;
 using Microsoft.AspNetCore.Builder;
@@ -38,6 +39,7 @@ namespace Attanance
 
             services.AddTransient<IEmployeeRepository, EmployeeSalaryRepository>();
             services.AddTransient<IValuesNamesRepository, NameValuesRepository>();
+            services.AddTransient<firebaseUnity>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -38,7 +38,7 @@ namespace Attanance.Controllers
 
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create(Employee employeeViewModel)
+        public async Task<IActionResult> Create(EmployeeViewModel employeeViewModel)
         {
            
            

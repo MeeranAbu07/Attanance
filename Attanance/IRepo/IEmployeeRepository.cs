@@ -9,7 +9,7 @@ namespace Attanance.IRepo
 {
    public interface IEmployeeRepository
     {
-        Task<string> CreateEmployee(Employee employeeViewModel); 
+        Task<string> CreateEmployee(EmployeeViewModel employeeViewModel); 
         Task<string> CreateSalary(SalaryListViewModel salaryListViewModel);
         Task<List<EmployeeViewModel>> GetEmployeeListById(int id);
         Task<string> UpdateEmplyee(EmployeeViewModel salaryListViewModel, int id);

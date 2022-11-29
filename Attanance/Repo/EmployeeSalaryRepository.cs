@@ -28,7 +28,7 @@ namespace Attanance.Repo
             mfirebaseUnity = firebaseUnity;
         }
 
-        public async Task<string> CreateEmployee(Employee employeeViewModel)
+        public async Task<string> CreateEmployee(EmployeeViewModel employeeViewModel)
         {
             
 

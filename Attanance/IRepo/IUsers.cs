@@ -10,7 +10,7 @@ namespace Attanance.IRepo
     public interface IUsers
     {
         public Task<string> CreateUser(UserBasicDetailsViewModel userBasicDetails);
-        public Task<List<UserBasicDetailsViewModel>> GetUserList();
+        public Task<List<UserBasicDetailsDemoViewModel>> GetUserList();
         public Task<UserBasicDetailsViewModel> GetUserById(int id );
         public Task<string> CreateAttanance(AttanancesViewModel attanancesViewModel);
         public Task<string> UpdateUser(UserBasicDetailsViewModel userBasicDetails);

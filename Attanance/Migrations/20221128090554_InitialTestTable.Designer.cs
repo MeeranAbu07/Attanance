@@ -4,14 +4,16 @@ using Attanance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Attanance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221128090554_InitialTestTable")]
+    partial class InitialTestTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,84 +77,6 @@ namespace Attanance.Migrations
                     b.ToTable("EmployeeDetails");
                 });
 
-            modelBuilder.Entity("Attanance.Models.ExcelAddress", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Aid")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Uid")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("excelAddresses");
-                });
-
-            modelBuilder.Entity("Attanance.Models.ExcelHome", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Aid")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RentOrOwn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ExcelHomes");
-                });
-
-            modelBuilder.Entity("Attanance.Models.ExcelUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Uid")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ExcelUsers");
-                });
-
-            modelBuilder.Entity("Attanance.Models.ExcelUserss", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Uid")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ExcelUsersses");
-                });
-
             modelBuilder.Entity("Attanance.Models.HieraricalOrder", b =>
                 {
                     b.Property<int>("Id")
@@ -169,63 +93,6 @@ namespace Attanance.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HieraricalOrder");
-                });
-
-            modelBuilder.Entity("Attanance.Models.MakCollageDeatils", b =>
-                {
-                    b.Property<int>("CollageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Collage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Course")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CollageId");
-
-                    b.ToTable("MakCollages");
-                });
-
-            modelBuilder.Entity("Attanance.Models.MakParentDetails", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("MakUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ParentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MakParents");
-                });
-
-            modelBuilder.Entity("Attanance.Models.MakUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("County")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MakUsers");
                 });
 
             modelBuilder.Entity("Attanance.Models.StringToValue", b =>
@@ -273,21 +140,6 @@ namespace Attanance.Migrations
                     b.HasIndex("UserBasicDetailsId");
 
                     b.ToTable("TaskDetails");
-                });
-
-            modelBuilder.Entity("Attanance.Models.TestTable", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("testTables");
                 });
 
             modelBuilder.Entity("Attanance.Models.TextFileUpload", b =>

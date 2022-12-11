@@ -129,7 +129,7 @@ namespace Attanance.Repo
 
             return "Delete";
         }
-        public async Task<List<UserBasicDetailsViewModel>> GetUserList()
+        public async Task<List<UserBasicDetailsDemoViewModel>> GetUserList()
         {
             try
             {
@@ -143,9 +143,14 @@ namespace Attanance.Repo
                     Dob = mak.Dob,
                     Doj = mak.Doj
                 }).ToListAsync();
+                List<UserBasicDetailsDemoViewModel> mak = userViewModels.Select(x => new UserBasicDetailsDemoViewModel
+                {
+                    Id = x.Id,
+                    UserName = x.UserName,
+                    EmployeeCode = x.EmployeeCode
+                }).ToList();
 
-
-                return userViewModels;
+                return mak;
 
             }
             catch (Exception ex)

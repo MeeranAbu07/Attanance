@@ -34,7 +34,7 @@ namespace Attanance.Repo
                     UserTypeId = userRoleViewModel.UserTypeId
                 };
                 mAppDbContext.UserRole.Add(userRole);
-                 mAppDbContext.SaveChangesAsync();
+                mAppDbContext.SaveChangesAsync();
                 return $"Added-{userRole.Id}";
             }
             catch (Exception Ex)
@@ -60,6 +60,10 @@ namespace Attanance.Repo
             {
                 addendance.TotalAttendance = userBasicDetails.Where(x => x.Id.Equals(addendance.userBasicId)).ToList().Count();
             }
+            //var mak = models.Select(x=>new GetAllattendanceViewModel
+            //{ 
+              
+            //})
             return models;
         }
     }

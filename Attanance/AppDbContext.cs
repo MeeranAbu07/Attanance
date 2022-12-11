@@ -23,6 +23,21 @@ namespace Attanance
         public DbSet<StringToValue> stringToFloats{ get; set; }
         public DbSet<TextFileUpload> TextFileUpload { get; set; }
         public DbSet<UserPassowrdGenerate> UserPassowrd { get; set; }
+        public DbSet<TestTable> testTables { get; set; }
+
+        public DbSet<MakUser> MakUsers { get; set; }
+        public DbSet<MakParentDetails> MakParents { get; set; }
+        public DbSet<MakCollageDeatils> MakCollages { get; set; }
+
+
+
+        public DbSet<ExcelHome> ExcelHomes { get; set; }
+        public DbSet<ExcelAddress> excelAddresses { get; set; }
+        public DbSet<ExcelUser> ExcelUsers { get; set; }
+
+        public DbSet<ExcelUserss> ExcelUsersses { get; set; }
+
+
 
     }
 }

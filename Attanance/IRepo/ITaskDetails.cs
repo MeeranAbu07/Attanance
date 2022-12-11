@@ -1,4 +1,5 @@
-﻿using Attanance.ViewModels;
+﻿using Attanance.Models;
+using Attanance.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Attanance.IRepo
     {
         public Task<string> CreateTaskDetails(TaskDetailsViewModel taskDetailsViewModel);
         public Task<List<TaskDetailsViewModel>> GetTaskList();
+        public Task<List<JsontoText>> GetTaskJsonList();
 
 
     }

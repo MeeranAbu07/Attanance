@@ -32,6 +32,12 @@ namespace Attanance.Controllers
             var result = await _users.GetTaskList();
             return Ok(result);
         }
+        //[HttpGet]
+        //public async Task<IActionResult> GetListJsonkDetails()
+        //{
+        //    var result = await _users.GetTaskJsonList();
+        //    return Ok(result);
+        //}
 
     }
 }

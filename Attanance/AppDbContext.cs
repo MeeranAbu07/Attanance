@@ -38,6 +38,10 @@ namespace Attanance
         public DbSet<ExcelUserss> ExcelUsersses { get; set; }
 
 
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<SalaryList> SalaryList { get; set; }
+        public DbSet<EmployeeSalary> EmployeeSalary { get; set; }
+        public DbSet<ValuesName> ValuesName { get; set; }
 
     }
 }
